@@ -26,7 +26,7 @@ module OmniAuth
 
       def login
         if request[:sessions]
-          request[:sessions][options[:login_field].to_s].send(options[:login_transform])
+          request[:sessions][options[:login_field].to_s].to_s.send(options[:login_transform])
         else
           ''
         end
