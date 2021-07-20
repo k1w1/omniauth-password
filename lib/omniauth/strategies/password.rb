@@ -12,7 +12,7 @@ module OmniAuth
       end
 
       def callback_phase
-        return fail!(:invalid_credentials) unless user.try(:authenticate, password)
+        return fail!(:invalid_credentials) unless user && uid && user.authenticate(password)
         super
       end
 
